@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery SideMenu 插件</title>
+    <meta name="author" content="zhixin" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
+    <link rel="stylesheet" href="//wenzhixin.net.cn/css/bootstrap.css" />
+    <link rel="stylesheet" href="//wenzhixin.net.cn/css/docs.css" />
+    <link rel="stylesheet" href="//wenzhixin.net.cn/css/fork.css" />
+    <link rel="stylesheet" href="side-menu.css" />
+    <style>
+      .pr {position: relative;}
+      #comments {
+        margin: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://github.com/wenzhixin/side-menu" class="fork_me"></a>
+    <div class="container">
+       <h1>jQuery SideMenu 插件</h1>
+    </div>
+    <hr />
+    <div class="container">
+      <div class="row">
+        <div id="main" class="span9">
+          <h2>前言</h2>
+          <h3>介绍</h3>
+          <h4>介绍1</h4>
+          <p>由于博客都是使用 markdown 来写的，有时候文章比较长就很麻烦。</p>
+          <p>因为没有导航，所以就想着自己生成导航，这样子既方便阅读又方便操作。</p>
+          <h4>介绍2</h4>
+          <p>看到百度百科的导航做的还不错，就直接模仿做成 jQuery 的插件了。</p>
+          <h3>开始体验</h3>
+          <p>那么，以这篇文章为例，让我们一起来 <button id="useSideMenu" class="btn">体验</button> 下这个插件吧。</p>
+          <h2>使用</h2>
+          <p>使用非常简单，不用修改原来的任何代码，只要加上插件的使用就可以了。</p>
+          <p>源码已经放到 github 上，完全开源，
+            支持我的话，欢迎给个 <a href="https://github.com/wenzhixin/side-menu/star">star</a> 
+            或者 <a href="https://github.com/wenzhixin/side-menu/fork">fork</a> 
+            这个 <a href="https://github.com/wenzhixin/side-menu">repo</a>。</p>
+          <h3>引入样式</h3>
+          <pre>
+&lt;link rel="stylesheet" href="side-menu.css" /&gt;
+          </pre>
+          <h3>引入脚本</h3>
+          <pre>
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.side.menu.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+$(function() {
+    $('#main').sideMenu();
+});
+&lt;/script&gt;
+          </pre>
+          <h2>API</h2>
+          <h3>参数</h3>
+          <h4>container</h4>
+          <p>
+            表示将目录放到什么元素下，字符串。<br />
+            格式为 jQuery 元素，例如 '#menu'、'.my-menu'，默认为 body。</p>
+          <h4>hs</h4>
+          <p>表示需要生成目录的标题列表，数组。<br />
+            默认为 ['h2', 'h3', 'h4']，根据 h2、h3、h4 来生成目录。
+          </p>
+          <h3>例子</h3>
+          <pre>
+$('#main').sideMenu({
+    container: '#menu',
+    hs: ['h2', 'h3', 'h4', 'h5']
+});
+          </pre>
+          <h2>关于</h2>
+          <p>出于兴趣与对 web 新鲜技术的热爱，经常在 github 上练练级，希望你也可以用到这个插件。</p>
+          <p>由于是第一版，所以可能还有一些问题的存在，以及需要完善的地方，假如觉得有用或者有什么问题，可以给我留言。</p>
+          
+      
+          <div id="comments">
+            <div class="ds-thread m10"></div>
+          </div>
+        </div>
+        <div class="span3 pr">
+          <div id="menu"></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>
+        Copyright © 2012-2013 wenzhixin.net.cn
+      </p>
+    </div>
+    <script src="//wenzhixin.net.cn/js/jquery-1.8.3.min.js"></script>
+    <script src="jquery.side.menu.js"></script>
+    <script>
+    $(function() {
+      var $use = $('#useSideMenu');
+      $use.click(function() {
+        $('#main').sideMenu({
+          container: '#menu'
+        });
+        $use.replaceWith($use.text());
+      });
+    });
+    </script>
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"wenzhixin"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <script type="text/javascript" src="//wenzhixin.net.cn/js/analytics.js"></script>
+  </body>
+</html>
