@@ -146,7 +146,8 @@
 		checkPosition: function() {
 			var $affixs = this.$el.find('.side-menu-affix'),
 				scrollHeight = $(window).height(),
-				scrollTop = $(window).scrollTop(),
+				scrollTop = $('body').scrollTop(),
+				maxScrollTop = $('body').height() - scrollHeight,
 				id = $affixs.first().attr('id');
 				
 			this.$el.find('.side-menu-affix').each(function() {
@@ -158,9 +159,9 @@
 					return false;
 				}
 			});
-			// if (this.$el.height() <= scrollTop + scrollHeight) {
-				// id = $affixs.last().attr('id');
-			// }
+			if (scrollTop >= maxScrollTop) {
+				id = $affixs.last().attr('id');
+			}
 			this.$list.find('dd').removeClass('active')
 				.filter('[data-id="' + id + '"]').addClass('active');
 		}
